@@ -41,10 +41,12 @@ colcon build --symlink-install --cmake-force-configure
 source install/setup.bash ### (in bridge_ws)
 ros2 run ros1_bridge dynamic_bridge --print-pairs
 ### in the output that is printed, search for the custom messages you created
-### you can also search for them with grep
-ros2 run ros1_bridge dynamic_bridge --print-pairs | grep -i CustomMessage ### <-- your name might be different
-### if you can't find them, something went wrong. did you forget to source the bridge_ws after building it?
-### make sure you follow the steps exactly. remove the devel, build, install folders in all workspaces and start again.
+### you can also search for them with grep (note: your message name might be different)
+ros2 run ros1_bridge dynamic_bridge --print-pairs | grep -i CustomMessage 
+### if you can't find them, something went wrong. 
+### did you forget to source the bridge_ws after building it?
+### make sure you follow the steps exactly.
+### remove the devel, build, install folders in all workspaces and start again.
 ```
 
 ```
