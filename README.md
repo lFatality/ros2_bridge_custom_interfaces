@@ -297,6 +297,10 @@ install(
 </export>
 ```
 
+Make sure to build your ROS2 workspace again after adding the `install` statement for the `.yaml` file!  
+Otherwise it will not be in the `install` folder and the bridge will not know about the mapping!
+If you forgot it, make sure to source your workspace again before building.
+
 For more complex mapping examples for both topics and services as well as additional information, refer to the ros_bridge documentation: https://github.com/ros2/ros1_bridge/blob/master/doc/index.rst
 
 ## - Bridge workspace
