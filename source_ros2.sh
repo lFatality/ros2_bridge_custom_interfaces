@@ -9,5 +9,5 @@ SETUPPATH="${SCRIPTPATH}/ros2ws/install/setup.bash"
 if [ -f ${SETUPPATH} ]; then
   source ${SETUPPATH}
 else
-  echo -e "ERROR: Couldn't source local ROS2 workspace, build it first!"
+  echo "Couldn't source local ROS2 workspace, build it first!"
 fi

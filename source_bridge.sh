@@ -32,3 +32,11 @@ else
   echo -e "ERROR: Couldn't source local ROS2 workspace, build it first!"
 fi
 
+echo "Sourcing bridge_ws"
+SETUPPATHBRIDGE="${SCRIPTPATH}/bridge_ws/install/setup.bash"
+if [ -f ${SETUPPATHBRIDGE} ]; then
+  source ${SETUPPATHBRIDGE}
+else
+  echo "Could not source bridge_ws. This is ok if you didn't build it yet. Just run this script again afterwards."
+fi
+
