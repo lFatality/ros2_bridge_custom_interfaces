@@ -1,0 +1,3 @@
+- 
+  ros1_package_name: 'custom_msg_ros1'
+  ros2_package_name: 'custom_msg_ros2'
