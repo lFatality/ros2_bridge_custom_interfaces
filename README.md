@@ -14,7 +14,58 @@ Before you do anything, initialize the git submodule for the ros bridge.
 git submodule update --init
 ```
 
-Then you can continue with building the workspaces.
+Then you can continue with building the workspaces.  
+Find the extremely condensed version first, after that you can find the same commands with more comments.
+
+### I like to keep it short and simple (no comments)
+```
+### Installation
+
+# Build ros1 workspace
+source source_ros1.sh
+cd ros1ws
+catkin_make
+
+### Build ros2 workspace
+source source_ros2.sh
+cd ros2ws
+colcon build
+
+### Build bridge workspace
+source source_bridge.sh
+cd bridge_ws
+colcon build --symlink-install --cmake-force-configure
+```
+
+```
+# Run
+# roscore
+source source_ros1.sh
+roscore
+
+# bridge
+source source_bridge.sh
+ros2 run ros1_bridge dynamic-bridge
+
+### ros1 talker
+source source_ros1.sh
+rosrun custom_msg_ros1 talker.py
+
+### ros2 listener
+source source_ros2.sh
+ros2 run pubsub listener
+
+### ros2 talker
+source source_ros2.sh
+ros2 run pubsub talker
+
+### Echo the topic in ros1
+source source_ros1.sh
+rostopic echo /chatter
+```
+
+### Could you explain that a bit more? (with comments)
+
 ```
 ### Installation
 ### start with a new console that does not have any ROS installation sourced
