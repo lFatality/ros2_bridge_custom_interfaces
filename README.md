@@ -10,6 +10,7 @@ I'm just here for the commands:
 Before you do anything, initialize the git submodule for the ros bridge.  
 ```
 ### initialize the ros_bridge submodule
+
 git submodule update --init
 ```
 
@@ -20,29 +21,38 @@ Then you can continue with building the workspaces.
 ### make sure you don't source any ROS installation in your .bashrc
 
 ### Build ros1 workspace
+### When sourcing you will get a notification that it can't source the local workspaces.
+### that's ok, it was just to source the ROS1 installation.
+### we will build the local workspace afterwards.
+
 source source_ros1.sh
-### you will get notifications that it can't source the local workspaces.
-### that's ok, we will build it now.
 cd ros1ws
 catkin_make
 
 ### Build ros2 workspace
 ### Open a new console!
+
 source source_ros2.sh
 cd ros2ws
 colcon build
 
 ### Build bridge workspace
 ### Open a new console!
+
 source source_bridge.sh
 cd bridge_ws
 colcon build --symlink-install --cmake-force-configure
+
 ### To check that it worked
+
 source install/setup.bash ### (in bridge_ws)
 ros2 run ros1_bridge dynamic_bridge --print-pairs
+
 ### in the output that is printed, search for the custom messages you created
 ### you can also search for them with grep (note: your message name might be different)
+
 ros2 run ros1_bridge dynamic_bridge --print-pairs | grep -i CustomMessage 
+
 ### if you can't find them, something went wrong. 
 ### did you forget to source the bridge_ws after building it?
 ### make sure you follow the steps exactly.
@@ -55,15 +65,18 @@ ros2 run ros1_bridge dynamic_bridge --print-pairs | grep -i CustomMessage
 ### make sure you don't source any ROS installation in your .bashrc
 
 ### Start roscore
+
 source source_ros1.sh
 roscore
 
 ### Run bridge
 ### Open a new console!
+
 source source_bridge.sh
 ros2 run ros1_bridge dynamic-bridge
+
 ### it might be necessary to run it like this instead if it doesn't work
-ros2 run ros1_bridge dynamic-bridge --bridge-all-topics
+### ros2 run ros1_bridge dynamic-bridge --bridge-all-topics
 
 ### Now you can choose who should send and who should receive
 
@@ -71,25 +84,31 @@ ros2 run ros1_bridge dynamic-bridge --bridge-all-topics
 
 ### Run ros1 talker
 ### Open a new console!
+
 source source_ros1.sh
 rosrun custom_msg_ros1 talker.py
 
 ### Run ros2 listener
 ### Open a new console!
+
 source source_ros2.sh
 ros2 run custom_msg_ros2 listener
+
 ### there is also an example for a listener in a different package as the messages
+
 ros2 run pubsub listener
 
 ### -- ROS1 listener, ROS2 talker --
 
 ### Run ros2 talker
 ### Open a new console!
+
 source source_ros2.sh
 ros2 run pubsub talker
 
 ### Echo the topic in ros1
 ### Open a new console!
+
 source source_ros1.sh
 rostopic echo /chatter
 ```
