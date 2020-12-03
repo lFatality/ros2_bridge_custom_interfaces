@@ -3,6 +3,10 @@
 This repository gives an example how to bridge custom interfaces between ROS 1 & 2.
 At the time of writing this, it's possible to bridge topics and services, but not actions.
 
+## Video
+I've made a tutorial on how to transfer custom messages between ROS 1&2 that you can find here:  
+https://www.youtube.com/watch?v=vBlUFIOHEIo
+
 ## TLDR
 
 I'm just here for the commands:
