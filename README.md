@@ -1,7 +1,7 @@
 # Custom interface bridging between ROS 1 & 2
 
-This repository gives an example how to bridge custom interfaces between ROS 1 & 2.
-At the time of writing this, it's possible to bridge topics and services, but not actions.
+This repository gives an example how to bridge custom interfaces between ROS 1 & 2 using the ros1_bridge package (https://github.com/ros2/ros1_bridge).
+At the time of writing this, it's possible to bridge topics and services and `tf2_msgs`, but not actions.
 
 ## Video
 I've made a tutorial on how to transfer custom messages between ROS 1&2 that you can find here:  
