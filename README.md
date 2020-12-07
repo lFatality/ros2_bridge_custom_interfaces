@@ -170,9 +170,6 @@ rostopic echo /chatter
 
 ## Some more info regarding the installation
 
-### Git submodule
-Note that the ros1_bridge in the git submodule is a fork of the official package. This was necessary as some adjustments to its `CMakeLists.txt` were needed but I still wanted to use a git submodule. This allows me to keep track of the exact commit at which the lib was when this was build, I can update the lib, and I can see which changes were made to it (and so can you, just go into the folder of the ros1_bridge and hit `git log` or use your favorite git GUI to examine the commits). As I can't make these changes to the official ros1_bridge, I had to create a fork. The adjustments that were made will be discussed later. For your own projects you can also just clone the official repo and make the adjustments yourself, we live in a free world. :) This actually makes sense because the changes are specific to your package names.
-
 ### Sourcing scripts
 
 To ease sourcing there are scripts that will do it for you.  
@@ -331,14 +328,4 @@ Be sure that you're on the right branch for your ROS distro.
 git checkout your_ros_distro
 ```
 
-### `CMakeLists.txt`
-
-In the `CMakeLists.txt` we have to inform the Ros bridge about the packages where our custom msgs reside.  
-This can be done in the following way:
-
-```
-### ROS2 packages
-find_package(custom_msg_ros2 REQUIRED)
-### ROS1 packages
-find_ros1_package(custom_msg_ros1 REQUIRED)
-```
+Before building the bridge be sure to have sourced both your ROS 1 & 2 installation as well as any workspaces that contain custom messages you want to map.
