@@ -1,3 +1,0 @@
-[submodule "bridge_ws/src/ros1_bridge"]
-	path = bridge_ws/src/ros1_bridge
-	url = https://github.com/lFatality/ros1_bridge.git
