@@ -251,7 +251,7 @@ field name: int32 myRos2Value
 Still you might want to transfer the message between ROS 1&2.  
 For that you need to create a YAML file specifying the mapping.
 
-Note: This mapping file is necessary only if there are differences between your ROS 1&2 messages. If they have the same package name, message name, and field names, you don't need this mapping file.
+Note: This mapping file is necessary only if there are differences between your ROS 1&2 messages. If they have the same package name, message name, and field names, you don't need this mapping file. If your messages are not created as expected it still might be worth a shot to try to at least specify the ros package names even if they're similar.
 
 Put the YAML file inside your ROS2 package with the message definitions.
 
